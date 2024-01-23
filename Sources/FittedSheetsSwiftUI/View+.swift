@@ -5,8 +5,10 @@
 //  Created by 이전희 on 2023/08/17.
 //
 
-import SwiftUI
+#if canImport(UIKit)
 import FittedSheets
+import SwiftUI
+import UIKit
 
 public extension View {
     func fittedSheet<SheetView: View>(isPresented: Binding<Bool>,
@@ -17,3 +19,4 @@ public extension View {
                                              destination: sheetView()))
     }
 }
+#endif
