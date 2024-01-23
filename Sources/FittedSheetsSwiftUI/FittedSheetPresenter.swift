@@ -1,12 +1,14 @@
 //
 //  FittedSheetPresenter.swift
-//  
+//
 //
 //  Created by 이전희 on 2023/08/17.
 //
 
-import SwiftUI
+#if canImport(UIKit)
 import FittedSheets
+import SwiftUI
+import UIKit
 
 public struct FittedSheetPresenter<SheetView: View>: UIViewControllerRepresentable {
     @Binding private var isPresented: Bool
@@ -31,7 +33,7 @@ public struct FittedSheetPresenter<SheetView: View>: UIViewControllerRepresentab
             let sheetController = SheetViewController(controller: controller)
             sheetController.setSizes(configuration.sizes, animated: true)
             sheetController.sheetViewControllerOptionsSetting(configuration.sheetViewControllerOptions)
-            
+
             sheetController.shouldDismiss = { sheetViewController in
                 configuration.shouldDismiss?(sheetViewController)
                 return true
@@ -48,3 +50,4 @@ public struct FittedSheetPresenter<SheetView: View>: UIViewControllerRepresentab
         }
     }
 }
+#endif
