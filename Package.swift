@@ -15,7 +15,7 @@ let package = Package(
             targets: ["FittedSheetsSwiftUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/whirr/FittedSheets", from: "2.0.0")
+        .package(url: "https://github.com/whirr/FittedSheets", from: "main")
     ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
