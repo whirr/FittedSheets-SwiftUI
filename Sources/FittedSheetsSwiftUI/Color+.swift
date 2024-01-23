@@ -1,22 +1,24 @@
 //
 //  Color+.swift
-//  
+//
 //
 //  Created by 이전희 on 2023/08/17.
 //
 
+#if canImport(UIKit)
 import SwiftUI
+import UIKit
 
 public extension Color {
     func uiColor() -> UIColor {
         if #available(iOS 14.0, *) {
             return UIColor(self)
         }
-        
+
         let scanner = Scanner(string: description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
         var hexNumber: UInt64 = 0
         var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
-        
+
         let result = scanner.scanHexInt64(&hexNumber)
         if result {
             r = CGFloat((hexNumber & 0xFF000000) >> 24) / 255
@@ -27,3 +29,4 @@ public extension Color {
         return UIColor(red: r, green: g, blue: b, alpha: a)
     }
 }
+#endif
