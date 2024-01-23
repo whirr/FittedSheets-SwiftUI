@@ -1,12 +1,14 @@
 //
 //  SheetViewController+.swift
-//  
+//
 //
 //  Created by 이전희 on 2023/08/17.
 //
 
-import SwiftUI
+#if canImport(UIKit)
 import FittedSheets
+import SwiftUI
+import UIKit
 
 public extension SheetViewController {
     func sheetViewControllerOptionsSetting(_ sheetViewControllerOptions: [SheetConfiguration.SheetViewControllerOptions]) {
@@ -43,3 +45,4 @@ public extension SheetViewController {
         }
     }
 }
+#endif
